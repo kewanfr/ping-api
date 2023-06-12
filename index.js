@@ -19,7 +19,7 @@ const ping = async(host) => {
     host: result.inputHost,
     numeric_host: result.numeric_host,
     alive: result.alive,
-    ping: result.time?.toFixed(0),
+    ping: result.time ? parseInt(result.time) : null,
   };
 }
 
