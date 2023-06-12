@@ -19,7 +19,7 @@ const ping = async(host) => {
     host: result.inputHost,
     numeric_host: result.numeric_host,
     alive: result.alive,
-    ping: result.time,
+    ping: result.time.toFixed(0),
   };
 }
 
@@ -34,6 +34,7 @@ app.post("/", async(req, res, next) => {
   const results = await Promise.all(hosts.map(async (host) => {
     return await ping(host);
   }));
+  console.log(results);
   res.json(results);
 });
 
